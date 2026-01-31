@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero text-center py-5 bg-light">
+    <div class="container">
+        <h1 class="display-5 fw-bold">Welcome, {{ username }}!</h1>
+        <p class="lead mt-3">Manage your kitchen, share meals, and request food easily.</p>
+
+        <!-- Action Buttons -->
+        <div class="mt-4 d-flex flex-wrap justify-content-center gap-3">
+            <a href="{{ url_for('create_house') }}" class="btn btn-primary btn-lg">
+                🏠 Add House / Kitchen
+            </a>
+
+            <a href="{{ url_for('cook_form_page') }}" class="btn btn-success btn-lg">
+                🍱 Add Meal
+            </a>
+
+            <a href="{{ url_for('listings_page') }}" class="btn btn-info btn-lg text-white">
+                🔍 View Listings
+            </a>
+
+            <a href="{{ url_for('view_requests') }}" class="btn btn-warning btn-lg text-white">
+                📋 View My Requests
+            </a>
+
+            <a href="{{ url_for('my_requests') }}" class="btn btn-warning btn-lg text-white">
+                🧾 My Requested Meals
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features py-5">
+    <div class="container">
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <div class="card p-4 shadow-sm">
+                    <h5>🍱 Share Food</h5>
+                    <p>Post surplus food in seconds</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card p-4 shadow-sm">
+                    <h5>📍 Nearby Pickup</h5>
+                    <p>Find food near your location</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card p-4 shadow-sm">
+                    <h5>🤝 Build Community</h5>
+                    <p>Help neighbours, reduce waste</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

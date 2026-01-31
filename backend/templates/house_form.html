@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Create House{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+
+    <form method="POST" enctype="multipart/form-data">
+        <!-- Owner Name -->
+        <label>Owner Name:</label>
+        <input type="text" name="owner_name" class="form-control mb-3" value="{{ username }}" readonly>
+
+        <!-- Description -->
+        <label>Description:</label>
+        <textarea name="description" class="form-control mb-3"></textarea>
+
+        <!-- Address -->
+        <label>Address:</label>
+        <input type="text" name="address" class="form-control mb-3">
+
+        <!-- City -->
+        <label>City:</label>
+        <input type="text" name="city" class="form-control mb-3">
+
+        <!-- Breakfast Time -->
+        <label>Breakfast Time:</label>
+        <input type="text" name="breakfast_time" class="form-control mb-3">
+
+        <!-- Lunch Time -->
+        <label>Lunch Time:</label>
+        <input type="text" name="lunch_time" class="form-control mb-3">
+
+        <!-- Dinner Time -->
+        <label>Dinner Time:</label>
+        <input type="text" name="dinner_time" class="form-control mb-3">
+
+        <!-- Pickup Time -->
+        <label>Pickup Time:</label>
+        <input type="text" name="pickup_time" class="form-control mb-3">
+
+        <!-- Image Upload -->
+        <label>Upload House Images:</label>
+        <input type="file" name="images" multiple class="form-control mb-3">
+
+        <button type="submit" class="btn btn-primary mt-3">Add House</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('index_page') }}" class="btn btn-secondary mb-2">Back to Home</a>
+    <a href="{{ url_for('house_listings') }}" class="btn btn-secondary">← Back to Houses</a>
+
+</div>
+{% endblock %}

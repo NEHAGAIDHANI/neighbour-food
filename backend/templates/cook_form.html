@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Add Meal | NeighbourFood{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5" style="max-width: 700px;">
+
+    <h2 class="mb-4 text-center">🍲 Share Your Food With Neighbors</h2>
+
+    <form method="POST" enctype="multipart/form-data"
+          action="{{ url_for('cook_form_submit') }}" class="card p-4 shadow-sm">
+
+        {% if meal %}
+        <input type="hidden" name="meal_id" value="{{ meal.id }}">
+        {% endif %}
+
+        <div class="mb-3">
+            <label class="form-label">Dish Name</label>
+            <input type="text" name="title" class="form-control"
+                   value="{{ meal.title if meal else '' }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea name="description" class="form-control" rows="3">{{ meal.description if meal else '' }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Portions</label>
+            <input type="number" name="portions" class="form-control"
+                   value="{{ meal.portions if meal else '' }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Available Till</label>
+            <input type="datetime-local" name="available_till" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Food Type</label>
+            <input type="text" name="food_type" class="form-control"
+                   value="{{ meal.food_type if meal else '' }}">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Packaging</label>
+            <input type="text" name="packaging" class="form-control"
+                   value="{{ meal.packaging if meal else '' }}">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Allergies</label>
+            <input type="text" name="allergies" class="form-control"
+                   value="{{ meal.allergies if meal else '' }}">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Ingredients</label>
+            <textarea name="ingredients" class="form-control" rows="2">{{ meal.ingredients if meal else '' }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Image</label>
+            <input type="file" name="image" class="form-control" accept="image/*"
+                   onchange="previewImage(event)">
+        </div>
+
+        <img id="preview" class="mb-3 rounded" width="150" style="display:none;">
+
+        <button type="submit" class="btn btn-success w-100">
+            {{ 'Update Meal' if meal else 'Add Meal' }}
+        </button>
+
+    </form>
+
+    <div class="text-center mt-3">
+        <a href="{{ url_for('index_page') }}">⬅ Back to Home</a>
+    </div>
+
+</div>
+
+<script>
+function previewImage(event) {
+  const img = document.getElementById('preview');
+  img.src = URL.createObjectURL(event.target.files[0]);
+  img.style.display = 'block';
+}
+</script>
+
+{% endblock %}

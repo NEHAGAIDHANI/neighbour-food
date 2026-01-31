@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Food Listings{% endblock %}
+
+{% block content %}
+  <!-- Page Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Food Shared by Neighbors 🍽️</h2>
+
+        <!-- Home Button -->
+        <a href="{{ url_for('index_page') }}" class="btn btn-outline-primary">
+            🏠 Back to Home
+        </a>
+    </div>
+
+{% if meals %}
+<div class="row g-4">
+  {% for meal in meals %}
+  <div class="col-md-6 col-lg-4">
+    <div class="card shadow-sm h-100">
+      {% if meal.image %}
+      <img src="{{ url_for('static', filename='images/' ~ meal.image) }}"
+           class="card-img-top" alt="{{ meal.title }}">
+      {% else %}
+      <img src="{{ url_for('static', filename='images/placeholder.png') }}"
+           class="card-img-top" alt="No image">
+      {% endif %}
+
+      <div class="card-body">
+        <h5 class="card-title">{{ meal.title }}</h5>
+        <p class="card-text"><strong>Shared by:</strong> {{ meal.cook.username if meal.cook else "Unknown" }}</p>
+        <p class="card-text"><strong>Portions:</strong> {{ meal.portions }}</p>
+        <p class="card-text"><strong>Food Type:</strong> {{ meal.food_type }}</p>
+
+        <div class="d-flex justify-content-between mt-3">
+          <a href="{{ url_for('details_page', meal_id=meal.id) }}" class="btn btn-primary btn-sm">View Details</a>
+          {% if session.get('user_id') == meal.cook_id %}
+          <a href="{{ url_for('edit_meal_form', meal_id=meal.id) }}" class="btn btn-warning btn-sm">Edit</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p class="text-center mt-4">No food shared yet. Be the first to share! 😊</p>
+{% endif %}
+{% endblock %}

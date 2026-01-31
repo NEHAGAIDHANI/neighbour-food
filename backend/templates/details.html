@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}{{ meal.title }} Details{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+
+    <h2>{{ meal.title }}</h2>
+
+    <!-- Cook Name -->
+    <p><strong>Cook:</strong> {{ meal.cook.username if meal.cook else "Unknown" }}</p>
+
+    <!-- Image -->
+    {% if meal.image %}
+        <img src="{{ url_for('static', filename='images/' ~ meal.image) }}" width="300" class="img-fluid rounded mb-3" alt="{{ meal.title }}">
+    {% else %}
+        <img src="{{ url_for('static', filename='images/placeholder.png') }}" width="300" class="img-fluid rounded mb-3" alt="No image">
+    {% endif %}
+
+    <!-- Description -->
+    <p><strong>Description:</strong> {{ meal.description }}</p>
+
+    <!-- Portions -->
+    <p><strong>Portions:</strong> {{ meal.portions }}</p>
+
+    <!-- Food Type -->
+    <p><strong>Food Type:</strong> {{ meal.food_type }}</p>
+
+    <!-- Packaging -->
+    <p><strong>Packaging:</strong> {{ meal.packaging }}</p>
+
+    <!-- Allergies -->
+    <p><strong>Allergies:</strong> {{ meal.allergies }}</p>
+
+    <!-- Ingredients -->
+    <p><strong>Ingredients:</strong> {{ meal.ingredients }}</p>
+
+    <!-- Available Till -->
+    {% if meal.available_till %}
+    <p><strong>Available Till:</strong> {{ meal.available_till.strftime('%Y-%m-%d %H:%M') }}</p>
+    {% endif %}
+
+    <br>
+    <a href="{{ url_for('listings_page') }}" class="btn btn-secondary mb-3">Back to Listings</a>
+
+    <!-- Request Button -->
+    {% if meal.portions > 0 %}
+    <form action="{{ url_for('api_request_meal', meal_id=meal.id) }}" method="POST">
+        <button type="submit" class="btn btn-primary">Request Meal</button>
+    </form>
+    {% else %}
+    <p><strong>All portions shared, Finished!!</strong></p>
+    {% endif %}
+
+</div>
+{% endblock %}

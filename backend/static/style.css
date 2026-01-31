@@ -1,0 +1,302 @@
+/* -----------------------------
+   General Reset & Body
+----------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff3e6;
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* -----------------------------
+   Navbar
+----------------------------- */
+.navbar {
+    padding: 1rem 2rem;
+    background-color: #ff704d;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 0 0 20px 20px;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #fff !important;
+}
+
+.navbar .btn {
+    border-radius: 50px;
+    padding: 0.4rem 1rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.navbar .btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* -----------------------------
+   Hero Section
+----------------------------- */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(120deg, #ff9966, #ff5e62);
+    color: #fff;
+    border-radius: 30px;
+    margin: 2rem 0;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.hero .btn {
+    background-color: #fff;
+    color: #ff5e62;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+.hero .btn:hover {
+    background-color: #ffe6e1;
+    color: #ff5e62;
+}
+
+/* -----------------------------
+   Feature Cards
+----------------------------- */
+.features .card {
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    background-color: #fffbe6;
+}
+
+.features .card:hover {
+    transform: translateY(-10px);
+}
+
+.features h5 {
+    font-size: 1.3rem;
+    color: #ff704d;
+}
+
+.features p {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* -----------------------------
+   Buttons
+----------------------------- */
+.btn-primary {
+    background-color: #ff704d;
+    color: #fff;
+    border-radius: 50px;
+    padding: 0.6rem 1.8rem;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #ff5722;
+}
+
+.btn-success {
+    background-color: #4caf50;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.btn-info {
+    background-color: #2196f3;
+}
+
+/* -----------------------------
+   Cards (Meals & Houses)
+----------------------------- */
+.card {
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background-color: #fff7f0;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card h4, .card h5 {
+    color: #ff704d;
+    margin-top: 10px;
+}
+
+.card p {
+    color: #555;
+    margin-top: 5px;
+}
+
+/* -----------------------------
+   Forms
+----------------------------- */
+form {
+    background-color: #fff;
+    padding: 30px 25px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    margin-bottom: 40px;
+}
+
+form label {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 5px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: 0.3s;
+}
+
+form input:focus, form textarea:focus, form select:focus {
+    border-color: #ff704d;
+}
+
+form button {
+    margin-top: 15px;
+    background-color: #ff704d;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 50px;
+    padding: 10px 25px;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background-color: #ff5722;
+}
+
+/* -----------------------------
+   Image Preview
+----------------------------- */
+#preview {
+    margin-top: 10px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+}
+
+/* -----------------------------
+   Requests Table
+----------------------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+table th {
+    background-color: #ff704d;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #fff3e6;
+}
+
+/* -----------------------------
+   Responsive
+----------------------------- */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .d-flex {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .card img {
+        height: 180px;
+    }
+}
+/* ---------- GLOBAL ---------- */
+body {
+    background-color: #fafafa;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ---------- NAVBAR ---------- */
+.food-navbar {
+    background: white;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.nav-btn {
+    padding: 6px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+}
+
+/* ---------- DASHBOARD BUTTONS ---------- */
+.action-btn {
+    min-width: 180px;
+    padding: 12px 18px;
+    font-size: 15px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+/* FORCE SAME SIZE */
+.action-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+

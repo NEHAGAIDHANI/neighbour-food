@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    .hero-section {
+        background: #f8f9fa;
+        padding: 60px 0;
+        border-bottom: 1px solid #dee2e6;
+    }
+</style>
+
+<header class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4">Sharing Plates, Building Community</h1>
+        <p class="lead">NeighborFood connects local home cooks with hungry neighbors.</p>
+    </div>
+</header>
+
+<main class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Our Mission</h2>
+            <p>
+                We believe that the best food isn't found in restaurants,
+                but in the kitchens of our neighbors. Our project aims to
+                reduce food waste and bring people together through the joy
+                of home-cooked meals.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <h2>How It Works</h2>
+            <ul>
+                <li><strong>Cooks:</strong> List your extra portions.</li>
+                <li><strong>Neighbors:</strong> Browse meals nearby.</li>
+                <li><strong>Connect:</strong> Pick up fresh food and meet a neighbor!</li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+<footer class="text-center py-4 border-top">
+    <p>&copy; 2026 NeighborFood Project</p>
+</footer>
+
+{% endblock %}

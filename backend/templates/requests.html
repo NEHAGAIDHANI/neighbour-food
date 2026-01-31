@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Food Requests{% endblock %}
+
+{% block content %}
+<h2>📥 Incoming Requests</h2>
+
+{% if requests %}
+  {% for req in requests %}
+    <div style="border:1px solid #ccc; padding:10px; margin-bottom:15px;">
+
+      <p><strong>Meal:</strong> {{ req.meal.title }}</p>
+      <p><strong>Requested By:</strong> {{ req.requester.username }}</p>
+      <p><strong>Status:</strong> {{ req.status }}</p>
+
+      {% if req.status == 'pending' %}
+        <form method="POST" action="{{ url_for('accept_request', req_id=req.id) }}">
+          Pickup Date:
+          <input type="date" name="pickup_date" required>
+
+          Pickup Time:
+          <input type="text" name="pickup_time" required>
+
+          <button type="submit">✅ Accept</button>
+        </form>
+      {% endif %}
+
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No requests yet.</p>
+{% endif %}
+{% endblock %}

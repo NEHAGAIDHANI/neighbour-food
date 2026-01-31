@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}All Houses / Kitchens{% endblock %}
+
+{% block content %}
+<!-- Page Title -->
+<div class="container my-4">
+    <h2 class="mb-4 text-center">All Houses / Kitchens</h2>
+
+    <div class="row g-4">
+        {% for house in houses %}
+        <div class="col-md-6">
+            <div class="card shadow-sm p-3 h-100">
+                <h4>{{ house.owner_name }}</h4>
+                <p><strong>Address:</strong> {{ house.address }}, {{ house.city }}</p>
+                <p><strong>Description:</strong> {{ house.description }}</p>
+                <p><strong>Breakfast:</strong> {{ house.breakfast_time }} | 
+                   <strong>Lunch:</strong> {{ house.lunch_time }} | 
+                   <strong>Dinner:</strong> {{ house.dinner_time }}</p>
+                <p><strong>Pickup Time:</strong> {{ house.pickup_time }}</p>
+
+                {% if house.images %}
+                <div class="d-flex flex-wrap gap-2 mt-3">
+                    {% for img in house.images %}
+                    <img src="{{ url_for('static', filename='house_images/' ~ img.image) }}" width="150" class="border rounded">
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

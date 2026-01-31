@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}My Requests{% endblock %}
+
+{% block content %}
+
+
+<div class="container py-5">
+    <h2>Meals I Requested</h2>
+    {% if requests %}
+        <div class="row">
+            {% for req in requests %}
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <img src="{{ url_for('static', filename='images/' + (req.meal.image or 'default.png')) }}" class="card-img-top" alt="Meal">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ req.meal.title }}</h5>
+                        <p>Cook: {{ req.meal.cook.username }}</p>
+                        <p>Status: {{ req.status }}</p>
+                        <p>Pickup Date: {{ req.pickup_date or 'Not set' }}</p>
+                        <p>Pickup Time: {{ req.pickup_time or 'Not set' }}</p>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+                <p>You have not requested any meals yet.</p>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>You have not requested any meals yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

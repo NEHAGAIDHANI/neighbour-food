@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Login - NeighbourFood{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow-sm p-4">
+                <h3 class="text-center mb-4">Login</h3>
+
+                <!-- Login Form -->
+                <form method="POST" action="{{ url_for('login_page') }}">
+                    <div class="mb-3">
+                        <input type="email" name="email" placeholder="Email" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="password" name="password" placeholder="Password" class="form-control" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                </form>
+
+                <!-- Register Link -->
+                <p class="mt-3 text-center">
+                    New user? <a href="{{ url_for('register_page') }}">Register here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Include your custom JS -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}
